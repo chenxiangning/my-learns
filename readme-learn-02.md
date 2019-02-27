@@ -25,7 +25,7 @@ service     业务逻辑代码
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-archetype-plugin</artifactId>
-    <version>2.4</version>
+    <version>2.2</version>
 </plugin>
 
 如果出现错误是 Error configuring command-line. Reason: Maven executable not found at: ...maven\bin\mvn.bat
@@ -39,16 +39,14 @@ service     业务逻辑代码
 mvn archetype:create-from-project
 2.生成archetype-catalog.xml文件,他的位置应该会放到默认的.m2文件夹中.
 mvn archetype:update-local-catalog
-3.
-mvn archetype:crawl
 
-4.进入生成好的模板目录,执行mvn install
+3.进入生成好的模板目录,执行mvn install
 cd .....\target\generated-sources\archetype 
 mvn install
 
-5.查看本地的archetype-catalog.xml看一下模板信息是否正确写入.
+4.查看本地的archetype-catalog.xml看一下模板信息是否正确写入.
 
-6.根据模板创建初始化工程
+5.根据模板创建初始化工程
 ```xml
 mvn archetype:generate -DarchetypeCatalog=local -DinteractiveMode=false -DgroupId=com.haha.lolo -DartifactId=nihao -Dversion=1.0 -DarchetypeGroupId=com.reachauto.framework -DarchetypeArtifactId=ar-spring-boot-models-archetype -DarchetypeVersion=1.1.1
 

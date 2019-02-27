@@ -1,0 +1,1 @@
+package com.cxn.example.model.beans.entity;
