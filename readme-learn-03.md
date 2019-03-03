@@ -13,3 +13,13 @@
 
  5.哈希存储
 
+redis cache util
+
+1.设置value
+2.读取value
+3.设置key过期时间
+4.获取key过期时间
+5.删除缓存
+6.判断key是否存在
+7.获取key的列表
+
