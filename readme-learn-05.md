@@ -45,3 +45,33 @@ management:
 | MailHealthIndicator | mail | 邮件服务器连接 |
 | RedisHealthIndicator | redis | redis服务器连接信息 |
 | ... |  |  |
+
+```java
+management.context-path=/manage
+management.port=20001
+```
+
+## 开启禁用单个端点
+endpoints.info.enabled=false 禁用/info端点
+
+endpoints.enabled=false      禁用所有端点
+
+endpoints.info.enabled=true  开启所需/info端点
+
+## 如果你只想打开一两个接口，那就先禁用全部接口，然后启用那几个你要的，这样更方便。
+
+endpoints.enabled = false
+
+endpoints.metrics.enabled = true
+
+## 修改端点id
+
+endpoints.info.id=myinfo
+
+## 关闭http端点
+
+management.port=-1
+
+#### https://www.cnblogs.com/ityouknow/p/8423590.html
+
+
