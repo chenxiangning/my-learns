@@ -1,0 +1,9 @@
+
+my:
+  a:
+    title: 开发环境
+    age: 20
+
+
+elasticsearch:
+  ip: 10.10.196.95:9200
