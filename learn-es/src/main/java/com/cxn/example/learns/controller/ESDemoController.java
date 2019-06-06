@@ -1,18 +1,14 @@
 package com.cxn.example.learns.controller;
 
-import com.cxn.example.learns.beans.entity.Book;
 import com.cxn.example.learns.beans.resp.V;
+import com.google.gson.JsonSyntaxException;
 import com.reachauto.hkr.tennis.notscan.gson.GsonTool;
 import org.apache.http.entity.ContentType;
 import org.apache.http.nio.entity.NStringEntity;
 import org.apache.http.util.EntityUtils;
-import org.elasticsearch.action.search.SearchRequest;
-import org.elasticsearch.action.search.SearchResponse;
-import org.elasticsearch.client.*;
-import org.elasticsearch.common.unit.Fuzziness;
-import org.elasticsearch.index.query.QueryBuilder;
-import org.elasticsearch.index.query.QueryBuilders;
-import org.elasticsearch.search.builder.SearchSourceBuilder;
+import org.elasticsearch.client.Request;
+import org.elasticsearch.client.Response;
+import org.elasticsearch.client.RestClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -134,7 +130,6 @@ public class ESDemoController {
     }
 
 
-
     /**
      * 根据id获取ES对象
      *
@@ -143,7 +138,7 @@ public class ESDemoController {
      */
     @RequestMapping(value = "/自定义查询.{url}", method = RequestMethod.GET)
     public V gei自定义查询(@PathVariable("url") String url) {
-        Request request = new Request(RequestMethod.GET.name(), new StringBuilder(url.replace("#","/")).toString());
+        Request request = new Request(RequestMethod.GET.name(), new StringBuilder(url.replace("#", "/")).toString());
         // 添加json返回优化
         request.addParameter("pretty", "true");
         Response response = null;
@@ -152,11 +147,13 @@ public class ESDemoController {
             // 执行HHTP请求
             response = client.performRequest(request);
             responseBody = EntityUtils.toString(response.getEntity());
-        } catch (IOException e) {
+            return V.ok(GsonTool.jsonToMap(responseBody));
+        } catch (Exception e) {
+            if (e instanceof JsonSyntaxException) {
+                return V.ok(responseBody);
+            }
             return V.error(HttpStatus.NOT_FOUND.value(), e.getMessage());
         }
-
-        return V.ok(GsonTool.jsonToMap(responseBody));
     }
 
 
