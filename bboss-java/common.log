@@ -1,0 +1,64 @@
+[2019-06-13 15:57:40][INFO][org.frameworkset.spi.assemble.PropertiesContainer] load config Properties File :conf/elasticsearch.properties in conf/elasticsearch-boot-config.xml does not exist,Ignore load.
+[2019-06-13 15:57:40][INFO][org.frameworkset.spi.assemble.PropertiesContainer] load config Properties File :file:/home/cxn/chenxiangning/cxn_project/open-github/my-learns/bboss-java/target/classes/application.properties
+[2019-06-13 15:57:40][INFO][org.frameworkset.spi.assemble.PropertiesContainer] load config Properties File :config/application.properties in conf/elasticsearch-boot-config.xml does not exist,Ignore load.
+[2019-06-13 15:57:40][INFO][org.frameworkset.spi.remote.http.ClientConfiguration] Http Pool[default] config:http.timeoutConnection=10000,http.timeoutSocket=50000,http.connectionRequestTimeout=10000,http.retryTime=3,http.retryInterval=3000,http.maxLineLength=-1,http.maxHeaderCount=200,http.maxTotal=400,http.soReuseAddress=false,http.soKeepAlive=false,http.timeToLive=3600000,http.keepAlive=3600000,http.defaultMaxPerRoute=200,http.validateAfterInactivity=3000,http.staleConnectionCheckEnabled=false,http.customHttpRequestRetryHandler=org.frameworkset.spi.remote.http.ConnectionResetHttpRequestRetryHandler,http.keystore=,http.keyPassword=,http.hostnameVerifier=
+[2019-06-13 15:57:42][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start Elasticsearch Datasource[default] from springboot[false]:{"elasticsearch.discoverHost":"true","elasticsearch.timeZone":"Asia/Shanghai","elasticsearch.dateFormat":"yyyy.MM.dd","elasticsearch.rest.hostNames":"10.10.196.95:9200","elasticsearch.scrollThreadQueue":"50","elasticsearch.scrollThreadCount":"50","elasticsearch.sliceScrollBlockedWaitTimeout":"0","elasticsearch.httpPool":"default","elasticUser":"elastic","elasticsearch.ttl":"2d","elasticsearch.includeTypeName":"false","elasticsearch.showTemplate":"false","elasticsearch.sliceScrollThreadQueue":"100","elasticsearch.sliceScrollThreadCount":"100","elasticPassword":"changeme","elasticsearch.client":"restful","elasticsearch.scrollBlockedWaitTimeout":"0"}
+[2019-06-13 15:57:42][INFO][org.frameworkset.elasticsearch.ElasticSearch] elasticsearch.TTL:172800000,config value is:2d
+[2019-06-13 15:57:42][INFO][org.frameworkset.elasticsearch.TimeBasedIndexNameBuilder] dateFormatString = yyyy.MM.dd,timeZoneString=Asia/Shanghai,indexPrefix=null
+[2019-06-13 15:57:42][INFO][org.frameworkset.elasticsearch.ElasticSearchHelper] Geo ipinfo config {"ip.cachesize":"2000","ip.database":"","ip.serviceUrl":"","ip.asnDatabase":""},from springboot:false
+[2019-06-13 15:57:42][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start ElasticSearch rest client:10.10.196.95:9200
+[2019-06-13 15:57:42][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Start Elasticsearch healthCheck thread,you can set elasticsearch.healthCheckInterval=-1 in conf/elasticsearch-boot-config.xml to disable healthCheck thread.
+[2019-06-13 15:57:42][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Elasticsearch Server Info:
+{
+  "name" : "yT2Ny4m",
+  "cluster_name" : "elasticsearch",
+  "cluster_uuid" : "OXLBlOzYRu-OFfKwgn2-yQ",
+  "version" : {
+    "number" : "6.5.4",
+    "build_flavor" : "default",
+    "build_type" : "rpm",
+    "build_hash" : "d2ef93d",
+    "build_date" : "2018-12-17T21:17:40.758843Z",
+    "build_snapshot" : false,
+    "lucene_version" : "7.5.0",
+    "minimum_wire_compatibility_version" : "5.6.0",
+    "minimum_index_compatibility_version" : "5.0.0"
+  },
+  "tagline" : "You Know, for Search"
+}
+
+[2019-06-13 15:57:42][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Start elastic discoverHost thread,to distabled set elasticsearch.discoverHost=false in conf/elasticsearch-boot-config.xml.
+[2019-06-13 15:57:42][INFO][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch rest client started.
+[2019-06-13 15:57:43][INFO][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch client stopping
+[2019-06-13 15:58:13][INFO][org.frameworkset.spi.assemble.PropertiesContainer] load config Properties File :conf/elasticsearch.properties in conf/elasticsearch-boot-config.xml does not exist,Ignore load.
+[2019-06-13 15:58:13][INFO][org.frameworkset.spi.assemble.PropertiesContainer] load config Properties File :file:/home/cxn/chenxiangning/cxn_project/open-github/my-learns/bboss-java/target/classes/application.properties
+[2019-06-13 15:58:13][INFO][org.frameworkset.spi.assemble.PropertiesContainer] load config Properties File :config/application.properties in conf/elasticsearch-boot-config.xml does not exist,Ignore load.
+[2019-06-13 15:58:13][INFO][org.frameworkset.spi.remote.http.ClientConfiguration] Http Pool[default] config:http.timeoutConnection=10000,http.timeoutSocket=50000,http.connectionRequestTimeout=10000,http.retryTime=3,http.retryInterval=3000,http.maxLineLength=-1,http.maxHeaderCount=200,http.maxTotal=400,http.soReuseAddress=false,http.soKeepAlive=false,http.timeToLive=3600000,http.keepAlive=3600000,http.defaultMaxPerRoute=200,http.validateAfterInactivity=3000,http.staleConnectionCheckEnabled=false,http.customHttpRequestRetryHandler=org.frameworkset.spi.remote.http.ConnectionResetHttpRequestRetryHandler,http.keystore=,http.keyPassword=,http.hostnameVerifier=
+[2019-06-13 15:58:13][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start Elasticsearch Datasource[default] from springboot[false]:{"elasticsearch.discoverHost":"true","elasticsearch.timeZone":"Asia/Shanghai","elasticsearch.dateFormat":"yyyy.MM.dd","elasticsearch.rest.hostNames":"10.10.196.95:9200","elasticsearch.scrollThreadQueue":"50","elasticsearch.scrollThreadCount":"50","elasticsearch.sliceScrollBlockedWaitTimeout":"0","elasticsearch.httpPool":"default","elasticUser":"elastic","elasticsearch.ttl":"2d","elasticsearch.includeTypeName":"false","elasticsearch.showTemplate":"false","elasticsearch.sliceScrollThreadQueue":"100","elasticsearch.sliceScrollThreadCount":"100","elasticPassword":"changeme","elasticsearch.client":"restful","elasticsearch.scrollBlockedWaitTimeout":"0"}
+[2019-06-13 15:58:13][INFO][org.frameworkset.elasticsearch.ElasticSearch] elasticsearch.TTL:172800000,config value is:2d
+[2019-06-13 15:58:13][INFO][org.frameworkset.elasticsearch.TimeBasedIndexNameBuilder] dateFormatString = yyyy.MM.dd,timeZoneString=Asia/Shanghai,indexPrefix=null
+[2019-06-13 15:58:13][INFO][org.frameworkset.elasticsearch.ElasticSearchHelper] Geo ipinfo config {"ip.cachesize":"2000","ip.database":"","ip.serviceUrl":"","ip.asnDatabase":""},from springboot:false
+[2019-06-13 15:58:13][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start ElasticSearch rest client:10.10.196.95:9200
+[2019-06-13 15:58:13][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Start Elasticsearch healthCheck thread,you can set elasticsearch.healthCheckInterval=-1 in conf/elasticsearch-boot-config.xml to disable healthCheck thread.
+[2019-06-13 15:58:13][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Elasticsearch Server Info:
+{
+  "name" : "yT2Ny4m",
+  "cluster_name" : "elasticsearch",
+  "cluster_uuid" : "OXLBlOzYRu-OFfKwgn2-yQ",
+  "version" : {
+    "number" : "6.5.4",
+    "build_flavor" : "default",
+    "build_type" : "rpm",
+    "build_hash" : "d2ef93d",
+    "build_date" : "2018-12-17T21:17:40.758843Z",
+    "build_snapshot" : false,
+    "lucene_version" : "7.5.0",
+    "minimum_wire_compatibility_version" : "5.6.0",
+    "minimum_index_compatibility_version" : "5.0.0"
+  },
+  "tagline" : "You Know, for Search"
+}
+
+[2019-06-13 15:58:14][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Start elastic discoverHost thread,to distabled set elasticsearch.discoverHost=false in conf/elasticsearch-boot-config.xml.
+[2019-06-13 15:58:14][INFO][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch rest client started.
+[2019-06-13 15:58:22][INFO][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch client stopping
