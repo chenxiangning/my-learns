@@ -1,0 +1,438 @@
+[2019-06-13 14:50:46][INFO][org.frameworkset.spi.assemble.PropertiesContainer] load config Properties File :application.properties in conf/elasticsearch-boot-config.xml does not exist,Ignore load.
+[2019-06-13 14:50:46][INFO][org.frameworkset.spi.assemble.PropertiesContainer] load config Properties File :config/application.properties in conf/elasticsearch-boot-config.xml does not exist,Ignore load.
+[2019-06-13 14:50:46][INFO][org.frameworkset.spi.remote.http.ClientConfiguration] Http Pool[default] config:http.timeoutConnection=50000,http.timeoutSocket=50000,http.connectionRequestTimeout=50000,http.retryTime=-1,http.retryInterval=-1,http.maxLineLength=-1,http.maxHeaderCount=500,http.maxTotal=1000,http.soReuseAddress=false,http.soKeepAlive=false,http.timeToLive=3600000,http.keepAlive=3600000,http.defaultMaxPerRoute=200,http.validateAfterInactivity=2000,http.staleConnectionCheckEnabled=false,http.customHttpRequestRetryHandler=null,http.keystore=null,http.keyPassword=null,http.hostnameVerifier=null
+[2019-06-13 14:50:47][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start Elasticsearch Datasource[default] from springboot[false]:{"elasticsearch.discoverHost":"false","elasticsearch.timeZone":"Asia/Shanghai","elasticsearch.dateFormat":"yyyy.MM.dd","elasticsearch.rest.hostNames":"127.0.0.1:9200","elasticsearch.scrollThreadQueue":"200","elasticsearch.scrollThreadCount":"200","elasticsearch.sliceScrollBlockedWaitTimeout":"0","elasticsearch.httpPool":"default","elasticUser":"","elasticsearch.ttl":"2d","elasticsearch.includeTypeName":"true","elasticsearch.showTemplate":"false","elasticsearch.sliceScrollThreadQueue":"100","elasticsearch.sliceScrollThreadCount":"100","elasticPassword":"","elasticsearch.client":"restful","elasticsearch.scrollBlockedWaitTimeout":"0"}
+[2019-06-13 14:50:47][INFO][org.frameworkset.elasticsearch.ElasticSearch] elasticsearch.TTL:172800000,config value is:2d
+[2019-06-13 14:50:47][INFO][org.frameworkset.elasticsearch.TimeBasedIndexNameBuilder] dateFormatString = yyyy.MM.dd,timeZoneString=Asia/Shanghai,indexPrefix=null
+[2019-06-13 14:50:47][INFO][org.frameworkset.elasticsearch.ElasticSearchHelper] Geo ipinfo config {"ip.cachesize":"2000","ip.database":"","ip.serviceUrl":"","ip.asnDatabase":""},from springboot:false
+[2019-06-13 14:50:47][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start ElasticSearch rest client:127.0.0.1:9200
+[2019-06-13 14:50:47][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Start Elasticsearch healthCheck thread,you can set elasticsearch.healthCheckInterval=-1 in conf/elasticsearch-boot-config.xml to disable healthCheck thread.
+[2019-06-13 14:50:47][ERROR][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch Rest Client started failed
+org.frameworkset.elasticsearch.client.NoServerElasticSearchException: All elasticServer [http://127.0.0.1:9200] can't been connected.
+	at org.frameworkset.elasticsearch.client.RoundRobinList.get(RoundRobinList.java:97)
+	at org.frameworkset.elasticsearch.client.ElasticSearchRestClient._executeHttp(ElasticSearchRestClient.java:601)
+	at org.frameworkset.elasticsearch.client.ElasticSearchRestClient.discover(ElasticSearchRestClient.java:723)
+	at org.frameworkset.elasticsearch.client.ElasticSearchRestClient.discover(ElasticSearchRestClient.java:554)
+	at org.frameworkset.elasticsearch.client.RestClientUtil.discover(RestClientUtil.java:1560)
+	at org.frameworkset.elasticsearch.client.ElasticSearchRestClient.initVersionInfo(ElasticSearchRestClient.java:214)
+	at org.frameworkset.elasticsearch.client.ElasticSearchRestClient.init(ElasticSearchRestClient.java:277)
+	at org.frameworkset.elasticsearch.ElasticSearch.start(ElasticSearch.java:399)
+	at org.frameworkset.elasticsearch.ElasticSearchHelper.booter(ElasticSearchHelper.java:201)
+	at org.frameworkset.elasticsearch.boot.ElasticSearchConfigBoot.boot(ElasticSearchConfigBoot.java:54)
+	at org.frameworkset.elasticsearch.boot.ElasticSearchConfigBoot.boot(ElasticSearchConfigBoot.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.frameworkset.elasticsearch.ElasticSearchHelper.init(ElasticSearchHelper.java:314)
+	at org.frameworkset.elasticsearch.ElasticSearchHelper.getConfigRestClientUtil(ElasticSearchHelper.java:392)
+	at org.frameworkset.elasticsearch.boot.BBossESStarter.getConfigRestClient(BBossESStarter.java:101)
+	at org.bboss.elasticsearchtest.springboot.crud.DocumentCRUD.testCreateIndice(DocumentCRUD.java:41)
+	at org.bboss.elasticsearchtest.springboot.BBossESStarterTestCase.testCRUD(BBossESStarterTestCase.java:74)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:252)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+[2019-06-13 14:50:47][INFO][org.frameworkset.elasticsearch.client.HealthCheck] Elasticsearch server[http://127.0.0.1:9200] is down.
+[2019-06-13 14:50:47][INFO][com.frameworkset.util.DaemonThread] Start check files is changed or not.if some files is changed,the resources of these files will be refreshed use ResourceInit interface.
+[2019-06-13 14:50:47][INFO][com.frameworkset.util.DaemonThread] Use out package file URL to monitor: /home/cxn/chenxiangning/cxn_project/open-github/my-learns/bboss/target/classes/esmapper/demo.xml
+[2019-06-13 14:50:47][INFO][com.frameworkset.util.DaemonThread] Add file esmapper/demo.xml@/home/cxn/chenxiangning/cxn_project/open-github/my-learns/bboss/target/classes/esmapper/demo.xml to monitor thread that moniting changed files.
+[2019-06-13 14:50:49][INFO][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch client stopping
+[2019-06-13 14:50:50][INFO][org.frameworkset.elasticsearch.client.HealthCheck] Elasticsearch server[http://127.0.0.1:9200] is down.
+[2019-06-13 14:53:13][INFO][org.frameworkset.spi.assemble.PropertiesContainer] load config Properties File :conf/elasticsearch.properties in conf/elasticsearch-boot-config.xml does not exist,Ignore load.
+[2019-06-13 14:53:13][INFO][org.frameworkset.spi.assemble.PropertiesContainer] load config Properties File :application.properties in conf/elasticsearch-boot-config.xml does not exist,Ignore load.
+[2019-06-13 14:53:13][INFO][org.frameworkset.spi.assemble.PropertiesContainer] load config Properties File :config/application.properties in conf/elasticsearch-boot-config.xml does not exist,Ignore load.
+[2019-06-13 14:53:13][INFO][org.frameworkset.spi.remote.http.ClientConfiguration] Http Pool[default] config:http.timeoutConnection=50000,http.timeoutSocket=50000,http.connectionRequestTimeout=50000,http.retryTime=-1,http.retryInterval=-1,http.maxLineLength=-1,http.maxHeaderCount=500,http.maxTotal=1000,http.soReuseAddress=false,http.soKeepAlive=false,http.timeToLive=3600000,http.keepAlive=3600000,http.defaultMaxPerRoute=200,http.validateAfterInactivity=2000,http.staleConnectionCheckEnabled=false,http.customHttpRequestRetryHandler=null,http.keystore=null,http.keyPassword=null,http.hostnameVerifier=null
+[2019-06-13 14:53:14][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start Elasticsearch Datasource[default] from springboot[false]:{"elasticsearch.discoverHost":"false","elasticsearch.timeZone":"Asia/Shanghai","elasticsearch.dateFormat":"yyyy.MM.dd","elasticsearch.rest.hostNames":"127.0.0.1:9200","elasticsearch.scrollThreadQueue":"200","elasticsearch.scrollThreadCount":"200","elasticsearch.sliceScrollBlockedWaitTimeout":"0","elasticsearch.httpPool":"default","elasticUser":"","elasticsearch.ttl":"2d","elasticsearch.includeTypeName":"true","elasticsearch.showTemplate":"false","elasticsearch.sliceScrollThreadQueue":"100","elasticsearch.sliceScrollThreadCount":"100","elasticPassword":"","elasticsearch.client":"restful","elasticsearch.scrollBlockedWaitTimeout":"0"}
+[2019-06-13 14:53:14][INFO][org.frameworkset.elasticsearch.ElasticSearch] elasticsearch.TTL:172800000,config value is:2d
+[2019-06-13 14:53:14][INFO][org.frameworkset.elasticsearch.TimeBasedIndexNameBuilder] dateFormatString = yyyy.MM.dd,timeZoneString=Asia/Shanghai,indexPrefix=null
+[2019-06-13 14:53:14][INFO][org.frameworkset.elasticsearch.ElasticSearchHelper] Geo ipinfo config {"ip.cachesize":"2000","ip.database":"","ip.serviceUrl":"","ip.asnDatabase":""},from springboot:false
+[2019-06-13 14:53:14][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start ElasticSearch rest client:127.0.0.1:9200
+[2019-06-13 14:53:14][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Start Elasticsearch healthCheck thread,you can set elasticsearch.healthCheckInterval=-1 in conf/elasticsearch-boot-config.xml to disable healthCheck thread.
+[2019-06-13 14:53:14][INFO][org.frameworkset.elasticsearch.client.HealthCheck] Elasticsearch server[http://127.0.0.1:9200] is down.
+[2019-06-13 14:53:14][ERROR][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch Rest Client started failed
+org.frameworkset.elasticsearch.client.NoServerElasticSearchException: All elasticServer [http://127.0.0.1:9200] can't been connected.
+	at org.frameworkset.elasticsearch.client.RoundRobinList.get(RoundRobinList.java:97)
+	at org.frameworkset.elasticsearch.client.ElasticSearchRestClient._executeHttp(ElasticSearchRestClient.java:601)
+	at org.frameworkset.elasticsearch.client.ElasticSearchRestClient.discover(ElasticSearchRestClient.java:723)
+	at org.frameworkset.elasticsearch.client.ElasticSearchRestClient.discover(ElasticSearchRestClient.java:554)
+	at org.frameworkset.elasticsearch.client.RestClientUtil.discover(RestClientUtil.java:1560)
+	at org.frameworkset.elasticsearch.client.ElasticSearchRestClient.initVersionInfo(ElasticSearchRestClient.java:214)
+	at org.frameworkset.elasticsearch.client.ElasticSearchRestClient.init(ElasticSearchRestClient.java:277)
+	at org.frameworkset.elasticsearch.ElasticSearch.start(ElasticSearch.java:399)
+	at org.frameworkset.elasticsearch.ElasticSearchHelper.booter(ElasticSearchHelper.java:201)
+	at org.frameworkset.elasticsearch.boot.ElasticSearchConfigBoot.boot(ElasticSearchConfigBoot.java:54)
+	at org.frameworkset.elasticsearch.boot.ElasticSearchConfigBoot.boot(ElasticSearchConfigBoot.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.frameworkset.elasticsearch.ElasticSearchHelper.init(ElasticSearchHelper.java:314)
+	at org.frameworkset.elasticsearch.ElasticSearchHelper.getRestClientUtil(ElasticSearchHelper.java:369)
+	at org.frameworkset.elasticsearch.boot.BBossESStarter.getRestClient(BBossESStarter.java:64)
+	at org.bboss.elasticsearchtest.springboot.MultiBBossESStartersTestCase.testMultiBBossESStarters(MultiBBossESStartersTestCase.java:49)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:252)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+[2019-06-13 14:53:14][INFO][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch client stopping
+[2019-06-13 14:54:24][INFO][org.frameworkset.spi.assemble.PropertiesContainer] load config Properties File :conf/elasticsearch.properties in conf/elasticsearch-boot-config.xml does not exist,Ignore load.
+[2019-06-13 14:54:24][INFO][org.frameworkset.spi.assemble.PropertiesContainer] load config Properties File :application.properties in conf/elasticsearch-boot-config.xml does not exist,Ignore load.
+[2019-06-13 14:54:24][INFO][org.frameworkset.spi.assemble.PropertiesContainer] load config Properties File :config/application.properties in conf/elasticsearch-boot-config.xml does not exist,Ignore load.
+[2019-06-13 14:54:24][INFO][org.frameworkset.spi.remote.http.ClientConfiguration] Http Pool[default] config:http.timeoutConnection=50000,http.timeoutSocket=50000,http.connectionRequestTimeout=50000,http.retryTime=-1,http.retryInterval=-1,http.maxLineLength=-1,http.maxHeaderCount=500,http.maxTotal=1000,http.soReuseAddress=false,http.soKeepAlive=false,http.timeToLive=3600000,http.keepAlive=3600000,http.defaultMaxPerRoute=200,http.validateAfterInactivity=2000,http.staleConnectionCheckEnabled=false,http.customHttpRequestRetryHandler=null,http.keystore=null,http.keyPassword=null,http.hostnameVerifier=null
+[2019-06-13 14:54:25][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start Elasticsearch Datasource[default] from springboot[false]:{"elasticsearch.discoverHost":"false","elasticsearch.timeZone":"Asia/Shanghai","elasticsearch.dateFormat":"yyyy.MM.dd","elasticsearch.rest.hostNames":"127.0.0.1:9200","elasticsearch.scrollThreadQueue":"200","elasticsearch.scrollThreadCount":"200","elasticsearch.sliceScrollBlockedWaitTimeout":"0","elasticsearch.httpPool":"default","elasticUser":"","elasticsearch.ttl":"2d","elasticsearch.includeTypeName":"true","elasticsearch.showTemplate":"false","elasticsearch.sliceScrollThreadQueue":"100","elasticsearch.sliceScrollThreadCount":"100","elasticPassword":"","elasticsearch.client":"restful","elasticsearch.scrollBlockedWaitTimeout":"0"}
+[2019-06-13 14:54:25][INFO][org.frameworkset.elasticsearch.ElasticSearch] elasticsearch.TTL:172800000,config value is:2d
+[2019-06-13 14:54:25][INFO][org.frameworkset.elasticsearch.TimeBasedIndexNameBuilder] dateFormatString = yyyy.MM.dd,timeZoneString=Asia/Shanghai,indexPrefix=null
+[2019-06-13 14:54:25][INFO][org.frameworkset.elasticsearch.ElasticSearchHelper] Geo ipinfo config {"ip.cachesize":"2000","ip.database":"","ip.serviceUrl":"","ip.asnDatabase":""},from springboot:false
+[2019-06-13 14:54:25][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start ElasticSearch rest client:127.0.0.1:9200
+[2019-06-13 14:54:25][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Start Elasticsearch healthCheck thread,you can set elasticsearch.healthCheckInterval=-1 in conf/elasticsearch-boot-config.xml to disable healthCheck thread.
+[2019-06-13 14:54:25][ERROR][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch Rest Client started failed
+org.frameworkset.elasticsearch.client.NoServerElasticSearchException: All elasticServer [http://127.0.0.1:9200] can't been connected.
+	at org.frameworkset.elasticsearch.client.RoundRobinList.get(RoundRobinList.java:97)
+	at org.frameworkset.elasticsearch.client.ElasticSearchRestClient._executeHttp(ElasticSearchRestClient.java:601)
+	at org.frameworkset.elasticsearch.client.ElasticSearchRestClient.discover(ElasticSearchRestClient.java:723)
+	at org.frameworkset.elasticsearch.client.ElasticSearchRestClient.discover(ElasticSearchRestClient.java:554)
+	at org.frameworkset.elasticsearch.client.RestClientUtil.discover(RestClientUtil.java:1560)
+	at org.frameworkset.elasticsearch.client.ElasticSearchRestClient.initVersionInfo(ElasticSearchRestClient.java:214)
+	at org.frameworkset.elasticsearch.client.ElasticSearchRestClient.init(ElasticSearchRestClient.java:277)
+	at org.frameworkset.elasticsearch.ElasticSearch.start(ElasticSearch.java:399)
+	at org.frameworkset.elasticsearch.ElasticSearchHelper.booter(ElasticSearchHelper.java:201)
+	at org.frameworkset.elasticsearch.boot.ElasticSearchConfigBoot.boot(ElasticSearchConfigBoot.java:54)
+	at org.frameworkset.elasticsearch.boot.ElasticSearchConfigBoot.boot(ElasticSearchConfigBoot.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.frameworkset.elasticsearch.ElasticSearchHelper.init(ElasticSearchHelper.java:314)
+	at org.frameworkset.elasticsearch.ElasticSearchHelper.getRestClientUtil(ElasticSearchHelper.java:369)
+	at org.frameworkset.elasticsearch.boot.BBossESStarter.getRestClient(BBossESStarter.java:64)
+	at org.bboss.elasticsearchtest.springboot.MultiBBossESStartersTestCase.testMultiBBossESStarters(MultiBBossESStartersTestCase.java:49)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:252)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+[2019-06-13 14:54:25][INFO][org.frameworkset.elasticsearch.client.HealthCheck] Elasticsearch server[http://127.0.0.1:9200] is down.
+[2019-06-13 14:54:25][INFO][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch client stopping
+[2019-06-13 14:54:43][INFO][org.frameworkset.spi.assemble.PropertiesContainer] load config Properties File :conf/elasticsearch.properties in conf/elasticsearch-boot-config.xml does not exist,Ignore load.
+[2019-06-13 14:54:43][INFO][org.frameworkset.spi.assemble.PropertiesContainer] load config Properties File :application.properties in conf/elasticsearch-boot-config.xml does not exist,Ignore load.
+[2019-06-13 14:54:43][INFO][org.frameworkset.spi.assemble.PropertiesContainer] load config Properties File :config/application.properties in conf/elasticsearch-boot-config.xml does not exist,Ignore load.
+[2019-06-13 14:54:43][INFO][org.frameworkset.spi.remote.http.ClientConfiguration] Http Pool[default] config:http.timeoutConnection=50000,http.timeoutSocket=50000,http.connectionRequestTimeout=50000,http.retryTime=-1,http.retryInterval=-1,http.maxLineLength=-1,http.maxHeaderCount=500,http.maxTotal=1000,http.soReuseAddress=false,http.soKeepAlive=false,http.timeToLive=3600000,http.keepAlive=3600000,http.defaultMaxPerRoute=200,http.validateAfterInactivity=2000,http.staleConnectionCheckEnabled=false,http.customHttpRequestRetryHandler=null,http.keystore=null,http.keyPassword=null,http.hostnameVerifier=null
+[2019-06-13 14:54:43][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start Elasticsearch Datasource[default] from springboot[false]:{"elasticsearch.discoverHost":"false","elasticsearch.timeZone":"Asia/Shanghai","elasticsearch.dateFormat":"yyyy.MM.dd","elasticsearch.rest.hostNames":"127.0.0.1:9200","elasticsearch.scrollThreadQueue":"200","elasticsearch.scrollThreadCount":"200","elasticsearch.sliceScrollBlockedWaitTimeout":"0","elasticsearch.httpPool":"default","elasticUser":"","elasticsearch.ttl":"2d","elasticsearch.includeTypeName":"true","elasticsearch.showTemplate":"false","elasticsearch.sliceScrollThreadQueue":"100","elasticsearch.sliceScrollThreadCount":"100","elasticPassword":"","elasticsearch.client":"restful","elasticsearch.scrollBlockedWaitTimeout":"0"}
+[2019-06-13 14:54:43][INFO][org.frameworkset.elasticsearch.ElasticSearch] elasticsearch.TTL:172800000,config value is:2d
+[2019-06-13 14:54:43][INFO][org.frameworkset.elasticsearch.TimeBasedIndexNameBuilder] dateFormatString = yyyy.MM.dd,timeZoneString=Asia/Shanghai,indexPrefix=null
+[2019-06-13 14:54:43][INFO][org.frameworkset.elasticsearch.ElasticSearchHelper] Geo ipinfo config {"ip.cachesize":"2000","ip.database":"","ip.serviceUrl":"","ip.asnDatabase":""},from springboot:false
+[2019-06-13 14:54:43][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start ElasticSearch rest client:127.0.0.1:9200
+[2019-06-13 14:54:43][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Start Elasticsearch healthCheck thread,you can set elasticsearch.healthCheckInterval=-1 in conf/elasticsearch-boot-config.xml to disable healthCheck thread.
+[2019-06-13 14:54:43][ERROR][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch Rest Client started failed
+org.frameworkset.elasticsearch.client.NoServerElasticSearchException: All elasticServer [http://127.0.0.1:9200] can't been connected.
+	at org.frameworkset.elasticsearch.client.RoundRobinList.get(RoundRobinList.java:97)
+	at org.frameworkset.elasticsearch.client.ElasticSearchRestClient._executeHttp(ElasticSearchRestClient.java:601)
+	at org.frameworkset.elasticsearch.client.ElasticSearchRestClient.discover(ElasticSearchRestClient.java:723)
+	at org.frameworkset.elasticsearch.client.ElasticSearchRestClient.discover(ElasticSearchRestClient.java:554)
+	at org.frameworkset.elasticsearch.client.RestClientUtil.discover(RestClientUtil.java:1560)
+	at org.frameworkset.elasticsearch.client.ElasticSearchRestClient.initVersionInfo(ElasticSearchRestClient.java:214)
+	at org.frameworkset.elasticsearch.client.ElasticSearchRestClient.init(ElasticSearchRestClient.java:277)
+	at org.frameworkset.elasticsearch.ElasticSearch.start(ElasticSearch.java:399)
+	at org.frameworkset.elasticsearch.ElasticSearchHelper.booter(ElasticSearchHelper.java:201)
+	at org.frameworkset.elasticsearch.boot.ElasticSearchConfigBoot.boot(ElasticSearchConfigBoot.java:54)
+	at org.frameworkset.elasticsearch.boot.ElasticSearchConfigBoot.boot(ElasticSearchConfigBoot.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.frameworkset.elasticsearch.ElasticSearchHelper.init(ElasticSearchHelper.java:314)
+	at org.frameworkset.elasticsearch.ElasticSearchHelper.getRestClientUtil(ElasticSearchHelper.java:369)
+	at org.frameworkset.elasticsearch.boot.BBossESStarter.getRestClient(BBossESStarter.java:64)
+	at org.bboss.elasticsearchtest.springboot.MultiBBossESStartersTestCase.testMultiBBossESStarters(MultiBBossESStartersTestCase.java:54)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:252)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+[2019-06-13 14:54:43][INFO][org.frameworkset.elasticsearch.client.HealthCheck] Elasticsearch server[http://127.0.0.1:9200] is down.
+[2019-06-13 14:54:43][INFO][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch client stopping
+[2019-06-13 14:54:51][INFO][org.frameworkset.spi.assemble.PropertiesContainer] load config Properties File :conf/elasticsearch.properties in conf/elasticsearch-boot-config.xml does not exist,Ignore load.
+[2019-06-13 14:54:51][INFO][org.frameworkset.spi.assemble.PropertiesContainer] load config Properties File :application.properties in conf/elasticsearch-boot-config.xml does not exist,Ignore load.
+[2019-06-13 14:54:51][INFO][org.frameworkset.spi.assemble.PropertiesContainer] load config Properties File :config/application.properties in conf/elasticsearch-boot-config.xml does not exist,Ignore load.
+[2019-06-13 14:54:51][INFO][org.frameworkset.spi.remote.http.ClientConfiguration] Http Pool[default] config:http.timeoutConnection=50000,http.timeoutSocket=50000,http.connectionRequestTimeout=50000,http.retryTime=-1,http.retryInterval=-1,http.maxLineLength=-1,http.maxHeaderCount=500,http.maxTotal=1000,http.soReuseAddress=false,http.soKeepAlive=false,http.timeToLive=3600000,http.keepAlive=3600000,http.defaultMaxPerRoute=200,http.validateAfterInactivity=2000,http.staleConnectionCheckEnabled=false,http.customHttpRequestRetryHandler=null,http.keystore=null,http.keyPassword=null,http.hostnameVerifier=null
+[2019-06-13 14:54:52][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start Elasticsearch Datasource[default] from springboot[false]:{"elasticsearch.discoverHost":"false","elasticsearch.timeZone":"Asia/Shanghai","elasticsearch.dateFormat":"yyyy.MM.dd","elasticsearch.rest.hostNames":"127.0.0.1:9200","elasticsearch.scrollThreadQueue":"200","elasticsearch.scrollThreadCount":"200","elasticsearch.sliceScrollBlockedWaitTimeout":"0","elasticsearch.httpPool":"default","elasticUser":"","elasticsearch.ttl":"2d","elasticsearch.includeTypeName":"true","elasticsearch.showTemplate":"false","elasticsearch.sliceScrollThreadQueue":"100","elasticsearch.sliceScrollThreadCount":"100","elasticPassword":"","elasticsearch.client":"restful","elasticsearch.scrollBlockedWaitTimeout":"0"}
+[2019-06-13 14:54:52][INFO][org.frameworkset.elasticsearch.ElasticSearch] elasticsearch.TTL:172800000,config value is:2d
+[2019-06-13 14:54:52][INFO][org.frameworkset.elasticsearch.TimeBasedIndexNameBuilder] dateFormatString = yyyy.MM.dd,timeZoneString=Asia/Shanghai,indexPrefix=null
+[2019-06-13 14:54:52][INFO][org.frameworkset.elasticsearch.ElasticSearchHelper] Geo ipinfo config {"ip.cachesize":"2000","ip.database":"","ip.serviceUrl":"","ip.asnDatabase":""},from springboot:false
+[2019-06-13 14:54:52][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start ElasticSearch rest client:127.0.0.1:9200
+[2019-06-13 14:54:52][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Start Elasticsearch healthCheck thread,you can set elasticsearch.healthCheckInterval=-1 in conf/elasticsearch-boot-config.xml to disable healthCheck thread.
+[2019-06-13 14:54:52][ERROR][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch Rest Client started failed
+org.frameworkset.elasticsearch.client.NoServerElasticSearchException: All elasticServer [http://127.0.0.1:9200] can't been connected.
+	at org.frameworkset.elasticsearch.client.RoundRobinList.get(RoundRobinList.java:97)
+	at org.frameworkset.elasticsearch.client.ElasticSearchRestClient._executeHttp(ElasticSearchRestClient.java:601)
+	at org.frameworkset.elasticsearch.client.ElasticSearchRestClient.discover(ElasticSearchRestClient.java:723)
+	at org.frameworkset.elasticsearch.client.ElasticSearchRestClient.discover(ElasticSearchRestClient.java:554)
+	at org.frameworkset.elasticsearch.client.RestClientUtil.discover(RestClientUtil.java:1560)
+	at org.frameworkset.elasticsearch.client.ElasticSearchRestClient.initVersionInfo(ElasticSearchRestClient.java:214)
+	at org.frameworkset.elasticsearch.client.ElasticSearchRestClient.init(ElasticSearchRestClient.java:277)
+	at org.frameworkset.elasticsearch.ElasticSearch.start(ElasticSearch.java:399)
+	at org.frameworkset.elasticsearch.ElasticSearchHelper.booter(ElasticSearchHelper.java:201)
+	at org.frameworkset.elasticsearch.boot.ElasticSearchConfigBoot.boot(ElasticSearchConfigBoot.java:54)
+	at org.frameworkset.elasticsearch.boot.ElasticSearchConfigBoot.boot(ElasticSearchConfigBoot.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.frameworkset.elasticsearch.ElasticSearchHelper.init(ElasticSearchHelper.java:314)
+	at org.frameworkset.elasticsearch.ElasticSearchHelper.getRestClientUtil(ElasticSearchHelper.java:369)
+	at org.frameworkset.elasticsearch.boot.BBossESStarter.getRestClient(BBossESStarter.java:64)
+	at org.bboss.elasticsearchtest.springboot.MultiBBossESStartersTestCase.testMultiBBossESStarters(MultiBBossESStartersTestCase.java:54)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:252)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+[2019-06-13 14:54:52][INFO][org.frameworkset.elasticsearch.client.HealthCheck] Elasticsearch server[http://127.0.0.1:9200] is down.
+[2019-06-13 14:54:52][INFO][com.frameworkset.util.DaemonThread] Start check files is changed or not.if some files is changed,the resources of these files will be refreshed use ResourceInit interface.
+[2019-06-13 14:54:52][INFO][com.frameworkset.util.DaemonThread] Use out package file URL to monitor: /home/cxn/chenxiangning/cxn_project/open-github/my-learns/bboss/target/classes/esmapper/demo.xml
+[2019-06-13 14:54:52][INFO][com.frameworkset.util.DaemonThread] Add file esmapper/demo.xml@/home/cxn/chenxiangning/cxn_project/open-github/my-learns/bboss/target/classes/esmapper/demo.xml to monitor thread that moniting changed files.
+[2019-06-13 14:54:53][INFO][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch client stopping
+[2019-06-13 14:54:55][INFO][org.frameworkset.elasticsearch.client.HealthCheck] Elasticsearch server[http://127.0.0.1:9200] is down.
+[2019-06-13 14:55:16][INFO][org.frameworkset.spi.remote.http.ClientConfiguration] Http Pool[default] config:http.timeoutConnection=5000,http.timeoutSocket=5000,http.connectionRequestTimeout=5000,http.retryTime=1,http.retryInterval=1000,http.maxLineLength=-1,http.maxHeaderCount=200,http.maxTotal=400,http.soReuseAddress=false,http.soKeepAlive=false,http.timeToLive=3600000,http.keepAlive=3600000,http.defaultMaxPerRoute=200,http.validateAfterInactivity=2000,http.staleConnectionCheckEnabled=false,http.customHttpRequestRetryHandler=org.frameworkset.spi.remote.http.ConnectionResetHttpRequestRetryHandler,http.keystore=null,http.keyPassword=null,http.hostnameVerifier=null
+[2019-06-13 14:55:17][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start Elasticsearch Datasource[default] from springboot[true]:{"elasticsearch.discoverHost":"false","elasticsearch.timeZone":"Asia/Shanghai","elasticsearch.dateFormat":"yyyy.MM.dd","elasticsearch.rest.hostNames":"10.10.196.95:9200","elasticsearch.scrollThreadQueue":"200","elasticsearch.scrollThreadCount":"200","elasticsearch.sliceScrollBlockedWaitTimeout":"0","elasticsearch.httpPool":"default","elasticUser":"elastic","elasticsearch.ttl":"2d","elasticsearch.includeTypeName":"true","elasticsearch.showTemplate":"true","elasticsearch.sliceScrollThreadQueue":"100","elasticsearch.sliceScrollThreadCount":"100","elasticPassword":"changeme","elasticsearch.client":"restful","elasticsearch.scrollBlockedWaitTimeout":"0"}
+[2019-06-13 14:55:17][INFO][org.frameworkset.elasticsearch.ElasticSearch] elasticsearch.TTL:172800000,config value is:2d
+[2019-06-13 14:55:17][INFO][org.frameworkset.elasticsearch.TimeBasedIndexNameBuilder] dateFormatString = yyyy.MM.dd,timeZoneString=Asia/Shanghai,indexPrefix=null
+[2019-06-13 14:55:17][INFO][org.frameworkset.elasticsearch.ElasticSearchHelper] Geo ipinfo config {"ip.cachesize":"2000","ip.database":"","ip.serviceUrl":"","ip.asnDatabase":""},from springboot:true
+[2019-06-13 14:55:17][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start ElasticSearch rest client:10.10.196.95:9200
+[2019-06-13 14:55:17][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Start Elasticsearch healthCheck thread,you can set elasticsearch.healthCheckInterval=-1 in ElasticSearch Configs to disable healthCheck thread.
+[2019-06-13 14:55:17][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Elasticsearch Server Info:
+{
+  "name" : "yT2Ny4m",
+  "cluster_name" : "elasticsearch",
+  "cluster_uuid" : "OXLBlOzYRu-OFfKwgn2-yQ",
+  "version" : {
+    "number" : "6.5.4",
+    "build_flavor" : "default",
+    "build_type" : "rpm",
+    "build_hash" : "d2ef93d",
+    "build_date" : "2018-12-17T21:17:40.758843Z",
+    "build_snapshot" : false,
+    "lucene_version" : "7.5.0",
+    "minimum_wire_compatibility_version" : "5.6.0",
+    "minimum_index_compatibility_version" : "5.0.0"
+  },
+  "tagline" : "You Know, for Search"
+}
+
+[2019-06-13 14:55:17][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Discover Elasticsearch Host is disabled,to enabled set elasticsearch.discoverHost=true  in ElasticSearch Configs.
+[2019-06-13 14:55:17][INFO][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch rest client started.
+[2019-06-13 14:55:17][INFO][org.frameworkset.spi.remote.http.ClientConfiguration] Http Pool[logs] config:http.timeoutConnection=5000,http.timeoutSocket=5000,http.connectionRequestTimeout=5000,http.retryTime=1,http.retryInterval=-1,http.maxLineLength=-1,http.maxHeaderCount=200,http.maxTotal=400,http.soReuseAddress=false,http.soKeepAlive=false,http.timeToLive=3600000,http.keepAlive=3600000,http.defaultMaxPerRoute=200,http.validateAfterInactivity=2000,http.staleConnectionCheckEnabled=false,http.customHttpRequestRetryHandler=org.frameworkset.spi.remote.http.ConnectionResetHttpRequestRetryHandler,http.keystore=null,http.keyPassword=null,http.hostnameVerifier=null
+[2019-06-13 14:55:17][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start Elasticsearch Datasource[logs] from springboot[true]:{"elasticsearch.discoverHost":"false","elasticsearch.timeZone":"Asia/Shanghai","elasticsearch.dateFormat":"yyyy.MM.dd","elasticsearch.rest.hostNames":"10.10.196.95:9200","elasticsearch.scrollThreadQueue":"200","elasticsearch.scrollThreadCount":"200","elasticsearch.sliceScrollBlockedWaitTimeout":"0","elasticsearch.httpPool":"logs","elasticUser":"elastic","elasticsearch.ttl":"2d","elasticsearch.includeTypeName":"true","elasticsearch.showTemplate":"true","elasticsearch.sliceScrollThreadQueue":"100","elasticsearch.sliceScrollThreadCount":"100","elasticPassword":"changeme","elasticsearch.client":"restful","elasticsearch.scrollBlockedWaitTimeout":"0"}
+[2019-06-13 14:55:17][INFO][org.frameworkset.elasticsearch.ElasticSearch] elasticsearch.TTL:172800000,config value is:2d
+[2019-06-13 14:55:17][INFO][org.frameworkset.elasticsearch.TimeBasedIndexNameBuilder] dateFormatString = yyyy.MM.dd,timeZoneString=Asia/Shanghai,indexPrefix=null
+[2019-06-13 14:55:17][INFO][org.frameworkset.elasticsearch.ElasticSearchHelper] Geo ipinfo config {"ip.cachesize":"2000","ip.database":"","ip.serviceUrl":"","ip.asnDatabase":""},from springboot:true
+[2019-06-13 14:55:17][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start ElasticSearch rest client:10.10.196.95:9200
+[2019-06-13 14:55:17][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Start Elasticsearch healthCheck thread,you can set elasticsearch.healthCheckInterval=-1 in ElasticSearch Configs to disable healthCheck thread.
+[2019-06-13 14:55:17][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Elasticsearch Server Info:
+{
+  "name" : "yT2Ny4m",
+  "cluster_name" : "elasticsearch",
+  "cluster_uuid" : "OXLBlOzYRu-OFfKwgn2-yQ",
+  "version" : {
+    "number" : "6.5.4",
+    "build_flavor" : "default",
+    "build_type" : "rpm",
+    "build_hash" : "d2ef93d",
+    "build_date" : "2018-12-17T21:17:40.758843Z",
+    "build_snapshot" : false,
+    "lucene_version" : "7.5.0",
+    "minimum_wire_compatibility_version" : "5.6.0",
+    "minimum_index_compatibility_version" : "5.0.0"
+  },
+  "tagline" : "You Know, for Search"
+}
+
+[2019-06-13 14:55:17][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Discover Elasticsearch Host is disabled,to enabled set elasticsearch.discoverHost=true  in ElasticSearch Configs.
+[2019-06-13 14:55:17][INFO][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch rest client started.
+[2019-06-13 14:55:17][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] ElasticSearch http request action:twitter/_mapping/tweet
+[2019-06-13 14:55:17][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] ElasticSearch http request action:twitter/_mapping/tweet
+[2019-06-13 14:55:17][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] ElasticSearch http request action:twitter
+[2019-06-13 14:55:17][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] ElasticSearch http request action:agentinfo
+[2019-06-13 14:55:17][INFO][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch client stopping
+[2019-06-13 14:55:19][INFO][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch client stopping
+[2019-06-13 14:55:28][INFO][org.frameworkset.spi.remote.http.ClientConfiguration] Http Pool[default] config:http.timeoutConnection=5000,http.timeoutSocket=5000,http.connectionRequestTimeout=5000,http.retryTime=1,http.retryInterval=1000,http.maxLineLength=-1,http.maxHeaderCount=200,http.maxTotal=400,http.soReuseAddress=false,http.soKeepAlive=false,http.timeToLive=3600000,http.keepAlive=3600000,http.defaultMaxPerRoute=200,http.validateAfterInactivity=2000,http.staleConnectionCheckEnabled=false,http.customHttpRequestRetryHandler=org.frameworkset.spi.remote.http.ConnectionResetHttpRequestRetryHandler,http.keystore=null,http.keyPassword=null,http.hostnameVerifier=null
+[2019-06-13 14:55:28][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start Elasticsearch Datasource[default] from springboot[true]:{"elasticsearch.discoverHost":"false","elasticsearch.timeZone":"Asia/Shanghai","elasticsearch.dateFormat":"yyyy.MM.dd","elasticsearch.rest.hostNames":"10.10.196.95:9200","elasticsearch.scrollThreadQueue":"200","elasticsearch.scrollThreadCount":"200","elasticsearch.sliceScrollBlockedWaitTimeout":"0","elasticsearch.httpPool":"default","elasticUser":"elastic","elasticsearch.ttl":"2d","elasticsearch.includeTypeName":"true","elasticsearch.showTemplate":"true","elasticsearch.sliceScrollThreadQueue":"100","elasticsearch.sliceScrollThreadCount":"100","elasticPassword":"changeme","elasticsearch.client":"restful","elasticsearch.scrollBlockedWaitTimeout":"0"}
+[2019-06-13 14:55:28][INFO][org.frameworkset.elasticsearch.ElasticSearch] elasticsearch.TTL:172800000,config value is:2d
+[2019-06-13 14:55:28][INFO][org.frameworkset.elasticsearch.TimeBasedIndexNameBuilder] dateFormatString = yyyy.MM.dd,timeZoneString=Asia/Shanghai,indexPrefix=null
+[2019-06-13 14:55:28][INFO][org.frameworkset.elasticsearch.ElasticSearchHelper] Geo ipinfo config {"ip.cachesize":"2000","ip.database":"","ip.serviceUrl":"","ip.asnDatabase":""},from springboot:true
+[2019-06-13 14:55:28][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start ElasticSearch rest client:10.10.196.95:9200
+[2019-06-13 14:55:28][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Start Elasticsearch healthCheck thread,you can set elasticsearch.healthCheckInterval=-1 in ElasticSearch Configs to disable healthCheck thread.
+[2019-06-13 14:55:28][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Elasticsearch Server Info:
+{
+  "name" : "yT2Ny4m",
+  "cluster_name" : "elasticsearch",
+  "cluster_uuid" : "OXLBlOzYRu-OFfKwgn2-yQ",
+  "version" : {
+    "number" : "6.5.4",
+    "build_flavor" : "default",
+    "build_type" : "rpm",
+    "build_hash" : "d2ef93d",
+    "build_date" : "2018-12-17T21:17:40.758843Z",
+    "build_snapshot" : false,
+    "lucene_version" : "7.5.0",
+    "minimum_wire_compatibility_version" : "5.6.0",
+    "minimum_index_compatibility_version" : "5.0.0"
+  },
+  "tagline" : "You Know, for Search"
+}
+
+[2019-06-13 14:55:28][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Discover Elasticsearch Host is disabled,to enabled set elasticsearch.discoverHost=true  in ElasticSearch Configs.
+[2019-06-13 14:55:28][INFO][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch rest client started.
+[2019-06-13 14:55:28][INFO][org.frameworkset.spi.remote.http.ClientConfiguration] Http Pool[logs] config:http.timeoutConnection=5000,http.timeoutSocket=5000,http.connectionRequestTimeout=5000,http.retryTime=1,http.retryInterval=-1,http.maxLineLength=-1,http.maxHeaderCount=200,http.maxTotal=400,http.soReuseAddress=false,http.soKeepAlive=false,http.timeToLive=3600000,http.keepAlive=3600000,http.defaultMaxPerRoute=200,http.validateAfterInactivity=2000,http.staleConnectionCheckEnabled=false,http.customHttpRequestRetryHandler=org.frameworkset.spi.remote.http.ConnectionResetHttpRequestRetryHandler,http.keystore=null,http.keyPassword=null,http.hostnameVerifier=null
+[2019-06-13 14:55:28][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start Elasticsearch Datasource[logs] from springboot[true]:{"elasticsearch.discoverHost":"false","elasticsearch.timeZone":"Asia/Shanghai","elasticsearch.dateFormat":"yyyy.MM.dd","elasticsearch.rest.hostNames":"10.10.196.95:9200","elasticsearch.scrollThreadQueue":"200","elasticsearch.scrollThreadCount":"200","elasticsearch.sliceScrollBlockedWaitTimeout":"0","elasticsearch.httpPool":"logs","elasticUser":"elastic","elasticsearch.ttl":"2d","elasticsearch.includeTypeName":"true","elasticsearch.showTemplate":"true","elasticsearch.sliceScrollThreadQueue":"100","elasticsearch.sliceScrollThreadCount":"100","elasticPassword":"changeme","elasticsearch.client":"restful","elasticsearch.scrollBlockedWaitTimeout":"0"}
+[2019-06-13 14:55:28][INFO][org.frameworkset.elasticsearch.ElasticSearch] elasticsearch.TTL:172800000,config value is:2d
+[2019-06-13 14:55:28][INFO][org.frameworkset.elasticsearch.TimeBasedIndexNameBuilder] dateFormatString = yyyy.MM.dd,timeZoneString=Asia/Shanghai,indexPrefix=null
+[2019-06-13 14:55:28][INFO][org.frameworkset.elasticsearch.ElasticSearchHelper] Geo ipinfo config {"ip.cachesize":"2000","ip.database":"","ip.serviceUrl":"","ip.asnDatabase":""},from springboot:true
+[2019-06-13 14:55:28][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start ElasticSearch rest client:10.10.196.95:9200
+[2019-06-13 14:55:28][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Start Elasticsearch healthCheck thread,you can set elasticsearch.healthCheckInterval=-1 in ElasticSearch Configs to disable healthCheck thread.
+[2019-06-13 14:55:28][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Elasticsearch Server Info:
+{
+  "name" : "yT2Ny4m",
+  "cluster_name" : "elasticsearch",
+  "cluster_uuid" : "OXLBlOzYRu-OFfKwgn2-yQ",
+  "version" : {
+    "number" : "6.5.4",
+    "build_flavor" : "default",
+    "build_type" : "rpm",
+    "build_hash" : "d2ef93d",
+    "build_date" : "2018-12-17T21:17:40.758843Z",
+    "build_snapshot" : false,
+    "lucene_version" : "7.5.0",
+    "minimum_wire_compatibility_version" : "5.6.0",
+    "minimum_index_compatibility_version" : "5.0.0"
+  },
+  "tagline" : "You Know, for Search"
+}
+
+[2019-06-13 14:55:28][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Discover Elasticsearch Host is disabled,to enabled set elasticsearch.discoverHost=true  in ElasticSearch Configs.
+[2019-06-13 14:55:28][INFO][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch rest client started.
+[2019-06-13 14:55:29][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] ElasticSearch http request action:_cluster/state?pretty
+[2019-06-13 14:55:29][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] ElasticSearch http request action:twitter/_mapping/tweet
+[2019-06-13 14:55:29][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] ElasticSearch http request action:twitter/_mapping/tweet
+[2019-06-13 14:55:29][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] ElasticSearch http request action:twitter
+[2019-06-13 14:55:29][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] ElasticSearch http request action:agentinfo
+[2019-06-13 14:55:29][INFO][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch client stopping
+[2019-06-13 14:55:31][INFO][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch client stopping
