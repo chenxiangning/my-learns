@@ -1,12 +1,16 @@
 package com.cxn.learn.es.controller;
 
+import org.apache.commons.collections.map.HashedMap;
 import org.frameworkset.elasticsearch.ElasticSearchHelper;
 import org.frameworkset.elasticsearch.client.ClientInterface;
 import org.frameworkset.elasticsearch.entity.ESDatas;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 
 @RestController
@@ -40,8 +44,18 @@ public class ESController {
 
     @RequestMapping(value = "/searchAll",
             method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ESDatas xxx(@RequestParam(value = "param1", required = false) String param1) {
-        ESDatas a = ElasticSearchHelper.getRestClientUtil().searchAll(param1, Map.class);
+    public ESDatas xxx(@RequestParam(value = "index", required = false) String index, @RequestParam(value = "startTime", required = false) String startTime,
+                       @RequestParam(value = "endTime", required = false) String endTime) throws ParseException {
+
+        Map params = new HashedMap();
+        params.put("pageSize", 10);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        params.put("startTime", dateFormat.parse(startTime).getTime());
+        params.put("endTime", dateFormat.parse(endTime).getTime());
+
+        ESDatas a = ElasticSearchHelper.getConfigRestClientUtil("esmapper/searchafter.xml")
+                .searchList(index + "/_search", "searchAfterDSL", params, Map.class);
+
         return a;
     }
 
