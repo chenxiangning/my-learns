@@ -1,0 +1,19 @@
+my:
+  a:
+    title: 开发环境
+    age: 20
+
+spring:
+  redis:
+    database: 1
+    database2: 2
+    database3: 3
+    host: localhost
+    password: 1qaz!QAZ
+    pool:
+      max-active: 8
+      max-idle: 8
+      max-wait: 1
+      min-idle: 1
+    port: 6379
+

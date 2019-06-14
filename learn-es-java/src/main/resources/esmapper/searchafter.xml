@@ -1,0 +1,21 @@
+<properties>
+    <property name="searchAfterDSL">
+        <![CDATA[{
+            "size": $pageSize,
+            "query": {
+                "bool": {
+                    "filter": [
+                        {
+                            "range": {
+                                "@timestamp": {
+                                    "gte": #[startTime],
+                                    "lt": #[endTime]
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        }]]>
+    </property>
+</properties>

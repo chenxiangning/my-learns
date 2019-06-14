@@ -1,0 +1,15 @@
+
+
+swagger:
+  base-package: com.cxn.learns.es2.controller
+  base-path: /**
+  contact:
+    email: 451624324@qq.com
+    name: 陈湘宁
+  description: Starter for swagger 2.x
+  enabled: true
+  title: 我的REST Api
+
+spring:
+  profiles:
+    active: dev
