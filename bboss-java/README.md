@@ -58,4 +58,34 @@ elasticsearch 7.x
 org.bboss.elasticsearchtest.crud.DocumentCRUD7Test
 ## 开发交流群
 166471282
+  Returning JDBC Connection to DataSource
+    "must":[
+          {
+              "term":{
+                  "message":#[message]
+              }
+          }
+      ],
   
+  
+  
+              "filtered":{
+                    "query":{
+                        "match":{
+                            "message":#[message]
+                        }
+                    }
+                },
+                
+                
+                 "match":{
+                    "name":{
+                        "type":"phrase_prefix",
+                        "query":#[message]
+                    }
+                }
+                
+              "multi_match":{
+                    "query":#[message],
+                    "fields":["message"]
+                },

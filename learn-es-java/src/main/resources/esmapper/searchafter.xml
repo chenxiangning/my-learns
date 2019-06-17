@@ -1,7 +1,10 @@
 <properties>
     <property name="searchAfterDSL">
         <![CDATA[{
-            "size": $pageSize,
+            ## 分页起点
+            "from":#[from],
+            ## 最多返回size条记录
+            "size":#[size],
             "query": {
                 "bool": {
                     "filter": [
@@ -13,9 +16,31 @@
                                 }
                             }
                         }
+                    ],
+                    "must": [
+                        #if($message)
+                        {
+                            "query_string": {
+                                "query": #[message],
+                                "analyze_wildcard": true
+                            }
+                        }
+                        #end
+                        #*
+                        #if($message)
+                            {
+                                "match_phrase" : {
+                                    "message" : {
+                                        "query" : #[message]
+                                    }
+                                }
+                            }
+                        #end
+                        *#
                     ]
                 }
             }
+            ,"_source":["message"]
         }]]>
     </property>
 </properties>
