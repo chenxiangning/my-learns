@@ -1,5 +1,7 @@
 package com.cxn.learn.es.controller;
 
+import com.cxn.learn.es.beans.vo.EsVO;
+import com.cxn.learn.es.beans.vo.V;
 import org.apache.commons.collections.map.HashedMap;
 import org.frameworkset.elasticsearch.ElasticSearchHelper;
 import org.frameworkset.elasticsearch.client.ClientInterface;
@@ -43,12 +45,12 @@ public class ESController {
 
     @RequestMapping(value = "/searchAll",
             method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ESDatas searchAll(@RequestParam(value = "index", required = false) String index,
-                             @RequestParam(value = "startTime", required = false) String startTime,
-                             @RequestParam(value = "endTime", required = false) String endTime,
-                             @RequestParam(value = "from", required = true) String from,
-                             @RequestParam(value = "size", required = true) String size,
-                             @RequestParam(value = "msg", required = false) String[] msg) throws ParseException {
+    public V searchAll(@RequestParam(value = "index", required = false) String index,
+                       @RequestParam(value = "startTime", required = false) String startTime,
+                       @RequestParam(value = "endTime", required = false) String endTime,
+                       @RequestParam(value = "from", required = true) int from,
+                       @RequestParam(value = "size", required = true) int size,
+                       @RequestParam(value = "msg", required = false) String[] msg) throws ParseException {
 
 
 //        List<String> datas = new ArrayList<String>();
@@ -70,27 +72,18 @@ public class ESController {
         ESDatas a = ElasticSearchHelper.getConfigRestClientUtil("esmapper/searchafter.xml")
                 .searchList(index + "/_search", "searchAfterDSL", params, Map.class);
 
-        return a;
+        EsVO esVO = new EsVO();
+        esVO.setList(a.getDatas());
+        esVO.setCurrentPage(from);
+        esVO.setCurrentSize(size);
+        esVO.setTotalCount(a.getTotalSize());
+        if (size != 0) {
+            esVO.setTotalPages((int) (a.getTotalSize() / size));
+        }
+
+        return V.ok(esVO);
     }
 
-    @RequestMapping(value = "/search_sql",
-            method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ESDatas searchSql(@RequestParam(value = "index", required = false) String index) throws ParseException {
-
-        ClientInterface clientUtil = ElasticSearchHelper.getRestClientUtil();
-        ESDatas<Map> esDatas =  //ESDatas包含当前检索的记录集合，最多10条记录，由sql中的limit属性指定
-                clientUtil.searchList("/_sql",//sql请求
-                        "select * from " + index + " limit 0,10", //elasticsearch-sql支持的sql语句
-                        Map.class);//返回的文档封装对象类型
-//        //获取结果对象列表
-//        List<Map> demos = esDatas.getDatas();
-//
-//        //获取总记录数
-//        long totalSize = esDatas.getTotalSize();
-//        System.out.println(totalSize);
-
-        return esDatas;
-    }
 
 
 }

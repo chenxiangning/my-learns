@@ -1,7 +1,10 @@
 <properties>
     <property name="searchAfterDSL">
         <![CDATA[{
-            "size": $pageSize,
+            ## 分页起点
+            "from":#[from],
+            ## 最多返回size条记录
+            "size":#[size],
             "query": {
                 "bool": {
                     "filter": [
@@ -13,9 +16,32 @@
                                 }
                             }
                         }
+                    ],
+                    "must": [
+                        #*
+                        #if($message)
+                        {
+                            "query_string": {
+                                "message": #[message],
+                                "analyze_wildcard": true
+                            }
+                        }
+                        #end
+                        *#
+
+                        #if($message)
+                            {
+                                "multi_match" : {
+                                    "query":    #[message],
+                                    "fields": ["ydtclass","ydtargs","ydtmethod","ydttime","ydttype","ydtpath","ydtapiversion","ydtrequrl","level","PtxId"]
+                                }
+                            }
+                        #end
+
                     ]
                 }
             }
+            ##,"_source":["message"]
         }]]>
     </property>
 </properties>

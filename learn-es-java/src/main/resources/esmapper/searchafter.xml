@@ -18,29 +18,30 @@
                         }
                     ],
                     "must": [
+                        #*
                         #if($message)
                         {
                             "query_string": {
-                                "query": #[message],
+                                "message": #[message],
                                 "analyze_wildcard": true
                             }
                         }
                         #end
-                        #*
+                        *#
+
                         #if($message)
                             {
-                                "match_phrase" : {
-                                    "message" : {
-                                        "query" : #[message]
-                                    }
+                                "multi_match" : {
+                                    "query":    #[message],
+                                    "fields": ["ydtclass","ydtargs","ydtmethod","ydttime","ydttype","ydtpath","ydtapiversion","ydtrequrl","level","PtxId"]
                                 }
                             }
                         #end
-                        *#
+
                     ]
                 }
             }
-            ,"_source":["message"]
+            ##,"_source":["message"]
         }]]>
     </property>
 </properties>

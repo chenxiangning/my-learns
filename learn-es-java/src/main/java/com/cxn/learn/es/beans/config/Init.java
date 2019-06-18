@@ -3,6 +3,7 @@ package com.cxn.learn.es.beans.config;
 import org.frameworkset.elasticsearch.ElasticSearchHelper;
 import org.frameworkset.elasticsearch.boot.ElasticSearchBoot;
 import org.frameworkset.elasticsearch.client.ClientInterface;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
@@ -19,8 +20,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class Init implements ApplicationRunner {
 
+    @Value("${spring.profiles.active}")
+    private String active;
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        ElasticSearchBoot.boot("application-dev.properties");
+        System.out.println("#################################");
+        System.out.println(active);
+        System.out.println("#################################");
+        ElasticSearchBoot.boot("application-" + active + ".properties");
     }
 }
