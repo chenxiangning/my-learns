@@ -1,0 +1,40 @@
+<properties>
+    <!--
+        创建demo需要的索引表结构
+    -->
+    <property name="cxn_car_mp">
+        <![CDATA[{
+            "settings": {
+                "number_of_shards": 6,
+                "index.refresh_interval": "5s"
+            },
+            "mappings": {
+                "cxn_car": {
+                    "properties": {
+                        "sid":{
+                            "type":"long"
+                        },
+                        "cxnBody": {
+                            "type": "text"
+
+                        },
+                        "myDate": {
+                            "type": "date"
+                             ,"format":"yyyy-MM-dd HH:mm:ss.SSS||yyyy-MM-dd'T'HH:mm:ss.SSS||yyyy-MM-dd HH:mm:ss||epoch_millis"
+                        },
+                        "applicationName": {
+                            "type": "text",
+                            "fields": { ##dsl注释 定义精确查找的内部keyword字段
+                                "keyword": {
+                                    "type": "keyword"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }]]>
+    </property>
+
+
+</properties>
